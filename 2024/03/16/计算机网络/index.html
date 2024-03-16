@@ -16,7 +16,7 @@
 <meta property="og:description" content="计算机网络">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-03-16T07:41:32.473Z">
-<meta property="article:modified_time" content="2024-03-16T07:45:42.697Z">
+<meta property="article:modified_time" content="2024-03-16T13:03:33.612Z">
 <meta property="article:author" content="Mr Ashers">
 <meta property="article:tag" content="面试题">
 <meta name="twitter:card" content="summary">
@@ -269,7 +269,15 @@
 </li>
 </ul>
 <p>总体而言，三次握手的设计使得TCP连接的建立更加稳健和可靠，确保了双方都已经同步好了连接参数再开始数据传输。  </p>
-<h2 id="TCP的四次挥手？"><a href="#TCP的四次挥手？" class="headerlink" title="TCP的四次挥手？"></a>TCP的四次挥手？</h2>
+<h2 id="TCP的四次挥手？"><a href="#TCP的四次挥手？" class="headerlink" title="TCP的四次挥手？"></a>TCP的四次挥手？</h2><p>TCP的四次握手是TCP连接建立和断开的标准过程，其步骤如下：  </p>
+<ol>
+<li>第一次挥手（客户端主动关闭连接）。客户端发送一个<code>FIN</code> 报文，表示它准备断开连接，并指定一个序列号<code>seq</code> 。此时，客户端进入<code>FIN_WAIT_1</code> 状态。  </li>
+<li>第二次挥手（服务器确认并进入半关闭状态）。服务器收到<code>FIN</code> 报文后，会发送一个<code>ACK</code> 报文，确认收到客户端的<code>FIN</code> 报文，并指定一个确认序列号<code>ack</code> ，其值为<code>seq</code> 加1。服务器进入<code>CLOSE_WAIT</code> 状态，此时进入半关闭状态，即服务器可以继续发送数据，但客户端不再接收。  </li>
+<li>第三次挥手（服务器主动关闭连接）。服务器完成数据传输后，它会发送一个<code>FIN</code> 报文，表示它准备断开连接，并指定一个序列号<code>seq</code> 。此时，服务器进入<code>LAST_ACK</code> 状态。  </li>
+<li>第四次挥手（客户端确认并进入时间等待状态）。客户端收到服务器的<code>FIN</code> 报文后，会发送一个<code>ACK</code> 报文，确认收到服务器的<code>FIN</code> 报文，并指定一个确认序列号<code>ack</code> ，其值为<code>seq</code> 加1。客户端进入<code>TIME_WAIT</code> 状态，等待<code>2MSL（最大报文段寿命）</code> 时间，以确保服务器已经收到<code>ACK</code> 报文，之后客户端进入<code>CLOSED</code> 状态。</li>
+</ol>
+<p>这个过程中的每个步骤都是为了确保双方都能正确地关闭连接，避免数据丢失。</p>
+
       <!-- 增加版权声明 -->
 
 
@@ -411,6 +419,7 @@
   </div>
 </article>
 
+
   
 <nav id="article-nav">
   
@@ -462,7 +471,6 @@
 </aside>
 
 
-
   
   
   
@@ -472,6 +480,26 @@
   
 
   
+  
+  
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="comment"></div>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+new Valine({
+    el: '#comment' ,
+    notify:false, 
+    verify:false, 
+    appId: 'zAKQVv6P9RRlE2GBuH3aklgn-gzGzoHsz',
+    appKey: 'faNXi9xTHBnYvTPaU6SFMtC2',
+    placeholder: 'ヾﾉ≧∀≦)o欢迎评论!',
+    path:window.location.pathname, 
+    avatar:'mm' 
+});
+</script>
+    </section>
+  
+
 
 
           </div>

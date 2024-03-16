@@ -16,7 +16,7 @@
 <meta property="og:description" content="MySQL">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-03-15T13:17:08.310Z">
-<meta property="article:modified_time" content="2024-03-16T05:51:59.155Z">
+<meta property="article:modified_time" content="2024-03-16T13:16:01.754Z">
 <meta property="article:author" content="Mr Ashers">
 <meta property="article:tag" content="面试题">
 <meta name="twitter:card" content="summary">
@@ -203,49 +203,72 @@
 
 <h2 id="一张数据表Student中查询第4到第6行数据的代码怎么写"><a href="#一张数据表Student中查询第4到第6行数据的代码怎么写" class="headerlink" title="一张数据表Student中查询第4到第6行数据的代码怎么写?"></a>一张数据表<code>Student</code>中查询第4到第6行数据的代码怎么写?</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Student LIMIT <span class="number">3</span>, <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
 
-<h2 id="LEFT-JOIN、INNER-JOIN和RIGHT-JOIN的区别"><a href="#LEFT-JOIN、INNER-JOIN和RIGHT-JOIN的区别" class="headerlink" title="LEFT JOIN、INNER JOIN和RIGHT JOIN的区别?"></a><code>LEFT JOIN</code>、<code>INNER JOIN</code>和<code>RIGHT JOIN</code>的区别?</h2><p> <strong><code>LEFT JOIN</code></strong> 、 <strong><code>INNER JOIN</code></strong> （通常简称为 <strong><code>JOIN</code></strong> ）和 <strong><code>RIGHT JOIN</code></strong> 是 SQL 中用于联接表的不同类型的 <code>JOIN</code>操作。这些操作主要用于从多个表中检索相关数据。以下是它们的主要区别：  </p>
-<p><strong>1. <code>LEFT JOIN</code>:</strong>  </p>
+<h2 id="左连接、内连接、全连接、右连接的区别"><a href="#左连接、内连接、全连接、右连接的区别" class="headerlink" title="左连接、内连接、全连接、右连接的区别?"></a>左连接、内连接、全连接、右连接的区别?</h2><p>在SQL中，左连接、内连接、全连接和右连接是不同类型的表连接操作，它们用于将两个或多个表中的数据组合在一起。以下是它们之间的区别：</p>
+<p><strong>1. 左连接 (LEFT JOIN):</strong></p>
 <ul>
-<li>返回左表中的所有行，以及右表中匹配的行。如果右表中没有匹配的行，结果集中右侧的列将包含<code>NULL</code>值。  </li>
-<li>左表是指在<code>LEFT JOIN</code>关键字之前的表。</li>
+<li>左连接返回左边表（第一个表）的所有行，以及右边表（第二个表）中与左边表匹配的行。如果右边表中没有与左边表匹配的行，则会返回NULL值。  </li>
+<li>左连接是以左边表为基础的，因此无论右边表是否有匹配的行，左边表中的所有行都会包含在结果中。  </li>
+<li>左连接的语法为：<code>SELECT * FROM table1 LEFT JOIN table2 ON table1.column = table2.column</code></li>
 </ul>
-<pre><code class="sql">SELECT * FROM left_table LEFT JOIN right_table ON left_table.id = right_table.id;
-</code></pre>
-<p><strong>2. <code>INNER JOIN</code>:</strong>  </p>
+<p><strong>2. 内连接 (INNER JOIN):</strong></p>
 <ul>
-<li>返回两个表中匹配的行。只有在左表和右表之间存在匹配时，才会包括在结果中。  </li>
-<li>这是默认的<code>JOIN</code>操作，如果你使用<code>JOIN</code>关键字而没有指定类型，它将被视为<code>INNER JOIN</code>。</li>
+<li>内连接返回两个表中匹配的行。即返回左边表和右边表中满足连接条件的行。</li>
+<li>只有当两个表中至少有一行满足连接条件时，才会返回结果。</li>
+<li>内连接的语法为：<code>SELECT * FROM table1 INNER JOIN table2 ON table1.column = table2.column</code></li>
 </ul>
-<pre><code class="sql">SELECT * FROM left_table INNER JOIN right_table ON left_table.id = right_table.id;
-</code></pre>
-<p><strong>3. <code>RIGHT JOIN</code>:</strong>  </p>
+<p><strong>3. 全连接 (FULL OUTER JOIN):</strong></p>
 <ul>
-<li>返回右表中的所有行，以及左表中匹配的行。如果左表中没有匹配的行，结果集中左侧的列将包含<code>NULL</code>值。  </li>
-<li>右表是指在<code>RIGHT JOIN</code>关键字之前的表。</li>
+<li>全连接返回左边表和右边表中的所有行，并将它们组合在一起。如果某行在左边表中没有匹配项，则对应的右边表列值将为NULL；反之亦然。  </li>
+<li>即使在一个表中没有匹配项，也会将该表中的所有行包括在结果中。  </li>
+<li>全连接在某些数据库中可能不被支持，可以通过使用<code>UNION ALL</code> 和<code>LEFT JOIN</code> 以及<code>RIGHT JOIN</code> 的组合来模拟实现。  </li>
+<li>全连接的语法可以为：  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table1 <span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> table2 <span class="keyword">ON</span> table1.column <span class="operator">=</span> table2.column</span><br></pre></td></tr></table></figure>
+或者：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table1 <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> table2 <span class="keyword">ON</span> table1.column <span class="operator">=</span> table2.column</span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> table1 <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> table2 <span class="keyword">ON</span> table1.column <span class="operator">=</span> table2.column</span><br></pre></td></tr></table></figure></li>
 </ul>
-<pre><code class="sql">SELECT * FROM left_table RIGHT JOIN right_table ON left_table.id = right_table.id;
-</code></pre>
-<p>总体而言， <strong><code>LEFT JOIN</code></strong> 和 <strong><code>RIGHT JOIN</code></strong> 是对称的，它们分别关注左表和右表的所有行。 <strong><code>INNER JOIN</code></strong> 则只返回两个表中匹配的行。选择使用哪种类型的<code>JOIN</code>取决于你想要的结果和数据的分布。</p>
-<h2 id="获取系统当前时间"><a href="#获取系统当前时间" class="headerlink" title="获取系统当前时间"></a>获取系统当前时间</h2><p>使用 <strong><code>NOW()</code></strong> 函数来获取系统的当前日期和时间。以下是一个简单的示例： </p>
-<pre><code class="sql">SELECT NOW() AS current_datetime;
-</code></pre>
+<p><strong>4. 右连接 (RIGHT JOIN)</strong>:</p>
+<ul>
+<li>右连接返回右边表（第二个表）的所有行，以及左边表（第一个表）中与右边表匹配的行。如果左边表中没有与右边表匹配的行，则会返回<code>NULL</code> 值。  </li>
+<li>右连接是以右边表为基础的，因此无论左边表是否有匹配的行，右边表中的所有行都会包含在结果中。  </li>
+<li>右连接的语法为：<code>SELECT * FROM table1 RIGHT JOIN table2 ON table1.column = table2.column</code></li>
+</ul>
+<p>总的来说，左连接、内连接、全连接和右连接的区别在于它们返回结果的方式以及对待表中没有匹配项的方式。选择哪种连接取决于数据之间的关系以及所需的结果。</p>
+<h2 id="获取系统当前时间"><a href="#获取系统当前时间" class="headerlink" title="获取系统当前时间"></a>获取系统当前时间</h2><p>使用 <strong><code>NOW()</code></strong> 函数来获取系统的当前日期和时间。以下是一个简单的示例：  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> NOW() <span class="keyword">AS</span> current_datetime;</span><br></pre></td></tr></table></figure>
+
 <p>这将返回一个包含当前日期和时间的结果集，类似于以下格式：</p>
-<pre><code class="diff">+---------------------+
-| current_datetime    |
-+---------------------+
-| 2022-02-23 12:34:56 |
-+---------------------+
-</code></pre>
-<p>你还可以使用 <strong><code>CURRENT_TIMESTAMP</code></strong> 函数，它等效于 <strong><code>NOW()</code></strong> ：  </p>
-<pre><code class="sql">SELECT CURRENT_TIMESTAMP() AS current_datetime;
-</code></pre>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+---------------------+</span></span><br><span class="line">| current_datetime    |</span><br><span class="line"><span class="addition">+---------------------+</span></span><br><span class="line">| 2022-02-23 12:34:56 |</span><br><span class="line"><span class="addition">+---------------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>你还可以使用 <strong><code>CURRENT_TIMESTAMP</code></strong> 函数，它等效于 <strong><code>NOW()</code></strong> ：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CURRENT_TIMESTAMP</span>() <span class="keyword">AS</span> current_datetime;</span><br></pre></td></tr></table></figure>
+
 <h2 id="时间转换成字符串"><a href="#时间转换成字符串" class="headerlink" title="时间转换成字符串"></a>时间转换成字符串</h2><p>将时间转换为字符串通常使用 <strong><code>CAST</code></strong> 或 <strong><code>CONVERT</code></strong> 函数： </p>
-<pre><code class="sql">SELECT CAST(NOW() AS CHAR) AS formatted_date;
-</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CAST</span>(NOW() <span class="keyword">AS</span> <span class="type">CHAR</span>) <span class="keyword">AS</span> formatted_date;</span><br></pre></td></tr></table></figure>
+
 <p>或者使用 <strong><code>DATE_FORMAT</code></strong> 函数：  </p>
-<pre><code class="sql">SELECT DATE_FORMAT(NOW(), &#39;%Y-%m-%d %H:%i:%s&#39;) AS formatted_date;
-</code></pre>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h2 id="SELECT和GROUP-BY之间的限制"><a href="#SELECT和GROUP-BY之间的限制" class="headerlink" title="SELECT和GROUP BY之间的限制"></a>SELECT和GROUP BY之间的限制</h2><h2 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h2>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(NOW(), <span class="string">&#x27;%Y-%m-%d %H:%i:%s&#x27;</span>) <span class="keyword">AS</span> formatted_date;</span><br></pre></td></tr></table></figure>
+
+<h2 id="MySQL的索引"><a href="#MySQL的索引" class="headerlink" title="MySQL的索引"></a>MySQL的索引</h2><p>MySQL索引是一种用于提高数据库查询性能的关键工具。它们是一种数据结构，通过存储特定列的值的快速引用，加速对表中数据的检索。索引可用于加速<code>SELECT</code> 、<code>UPDATE</code> 和<code>DELETE</code> 查询，但也会增加<code>INSERT</code> 和 <code>UPDATE</code> 操作的开销。</p>
+<p>以下是一些关于MySQL索引的基本知识：</p>
+<p><strong>1. B-Tree 索引</strong>：MySQL默认使用的索引类型是B-Tree（平衡树）索引。B-Tree索引适用于各种不同的查询操作，如精确匹配、范围查询和排序。<br><strong>2. 唯一索引</strong>：唯一索引确保了列中的值是唯一的，即不允许重复值。这在避免数据重复和维护数据完整性方面非常有用。<br><strong>3. 主键索引</strong>：主键索引是一种唯一索引，但它还具有特殊性，即被用作表的主键。主键索引确保了表中每一行的唯一性，并且不允许<code>NULL</code> 值。<br><strong>4. 复合索引</strong>：复合索引是指在多个列上创建的索引。当查询涉及到复合索引的所有列时，MySQL可以更有效地使用该索引。<br><strong>5. 全文索引</strong>：全文索引允许在文本列上进行全文搜索。这种类型的索引对于需要在大量文本数据中进行搜索的应用程序非常有用。<br><strong>6. 空间索引</strong>：空间索引用于地理数据类型，允许对空间数据进行高效查询。<br><strong>7. 索引优化</strong>：在设计索引时，需要权衡查询性能和索引维护成本。添加过多的索引可能会降低写操作的性能，因为每次修改表时都需要更新索引。<br><strong>8. 索引优化器</strong>：MySQL具有查询优化器，它会根据查询和可用索引的情况选择最佳执行计划。有时需要手动调整查询或索引设计来优化查询性能。<br><strong>9. 查询分析器</strong>：MySQL提供了工具来分析查询执行计划，以便识别潜在的性能瓶颈和优化查询。<br><strong>10. 索引覆盖</strong>：当查询只需要索引中的数据而不需要访问表中的实际行数据时，MySQL可以利用索引覆盖来提高查询性能。</p>
+<p>总的来说，良好设计的索引可以显著提高MySQL数据库的性能，但需要注意避免过度索引以及定期优化索引以适应数据访问模式的变化。  </p>
+<h2 id="SELECT和GROUP-BY之间的限制"><a href="#SELECT和GROUP-BY之间的限制" class="headerlink" title="SELECT和GROUP BY之间的限制"></a>SELECT和GROUP BY之间的限制</h2><p>所有select字段，都必须出现在group by中，例外：</p>
+<ol>
+<li>该字段为主键  </li>
+<li>该字段包含在聚合函数中</li>
+</ol>
+<p>示例一：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> id, name <span class="keyword">from</span> employee <span class="keyword">group</span> <span class="keyword">by</span> name;</span><br></pre></td></tr></table></figure>
+<p><code>id</code> 为主键，符合  </p>
+<p>示例二：  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name, <span class="built_in">sum</span>(salary) <span class="keyword">from</span> employee <span class="keyword">group</span> <span class="keyword">by</span> name;</span><br></pre></td></tr></table></figure>
+<p><code>salary</code> 在聚合函数中，符合</p>
+<p>示例三：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name,age, <span class="built_in">sum</span>(salary) <span class="keyword">from</span> employee <span class="keyword">group</span> <span class="keyword">by</span> name;</span><br></pre></td></tr></table></figure>
+<p><code>group by</code> 字段没有包含<code>age</code> ， <code>age</code> 不是主键，不符合</p>
+<p>那<code>select *</code>和<code>group by</code> 子句如何搭配使用？</p>
+<p>把分组结果当成一个表</p>
+<p>示例四：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1, (<span class="keyword">select</span> id <span class="keyword">as</span> t <span class="keyword">from</span> table2 <span class="keyword">group</span> <span class="keyword">by</span> id) m <span class="keyword">where</span> <span class="keyword">table</span> <span class="number">1.</span>id<span class="operator">=</span>m.t；</span><br></pre></td></tr></table></figure>
+
       <!-- 增加版权声明 -->
 
 
@@ -387,6 +410,7 @@
   </div>
 </article>
 
+
   
 <nav id="article-nav">
   
@@ -428,7 +452,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-number">1.</span> <span class="toc-text">MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%BC%A0%E6%95%B0%E6%8D%AE%E8%A1%A8Student%E4%B8%AD%E6%9F%A5%E8%AF%A2%E7%AC%AC4%E5%88%B0%E7%AC%AC6%E8%A1%8C%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BB%A3%E7%A0%81%E6%80%8E%E4%B9%88%E5%86%99"><span class="toc-number">1.1.</span> <span class="toc-text">一张数据表Student中查询第4到第6行数据的代码怎么写?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LEFT-JOIN%E3%80%81INNER-JOIN%E5%92%8CRIGHT-JOIN%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">LEFT JOIN、INNER JOIN和RIGHT JOIN的区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4"><span class="toc-number">1.3.</span> <span class="toc-text">获取系统当前时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.4.</span> <span class="toc-text">时间转换成字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">1.5.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SELECT%E5%92%8CGROUP-BY%E4%B9%8B%E9%97%B4%E7%9A%84%E9%99%90%E5%88%B6"><span class="toc-number">1.6.</span> <span class="toc-text">SELECT和GROUP BY之间的限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.7.</span> <span class="toc-text">全连接</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-number">1.</span> <span class="toc-text">MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%BC%A0%E6%95%B0%E6%8D%AE%E8%A1%A8Student%E4%B8%AD%E6%9F%A5%E8%AF%A2%E7%AC%AC4%E5%88%B0%E7%AC%AC6%E8%A1%8C%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BB%A3%E7%A0%81%E6%80%8E%E4%B9%88%E5%86%99"><span class="toc-number">1.1.</span> <span class="toc-text">一张数据表Student中查询第4到第6行数据的代码怎么写?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A6%E8%BF%9E%E6%8E%A5%E3%80%81%E5%86%85%E8%BF%9E%E6%8E%A5%E3%80%81%E5%85%A8%E8%BF%9E%E6%8E%A5%E3%80%81%E5%8F%B3%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">左连接、内连接、全连接、右连接的区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4"><span class="toc-number">1.3.</span> <span class="toc-text">获取系统当前时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.4.</span> <span class="toc-text">时间转换成字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="toc-number">1.5.</span> <span class="toc-text">MySQL的索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SELECT%E5%92%8CGROUP-BY%E4%B9%8B%E9%97%B4%E7%9A%84%E9%99%90%E5%88%B6"><span class="toc-number">1.6.</span> <span class="toc-text">SELECT和GROUP BY之间的限制</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -438,7 +462,6 @@
 </aside>
 
 
-
   
   
   
@@ -448,6 +471,26 @@
   
 
   
+  
+  
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="comment"></div>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+new Valine({
+    el: '#comment' ,
+    notify:false, 
+    verify:false, 
+    appId: 'zAKQVv6P9RRlE2GBuH3aklgn-gzGzoHsz',
+    appKey: 'faNXi9xTHBnYvTPaU6SFMtC2',
+    placeholder: 'ヾﾉ≧∀≦)o欢迎评论!',
+    path:window.location.pathname, 
+    avatar:'mm' 
+});
+</script>
+    </section>
+  
+
 
 
           </div>

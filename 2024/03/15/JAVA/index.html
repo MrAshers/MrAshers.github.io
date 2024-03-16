@@ -16,7 +16,7 @@
 <meta property="og:description" content="java">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-03-15T06:00:08.795Z">
-<meta property="article:modified_time" content="2024-03-16T05:52:04.993Z">
+<meta property="article:modified_time" content="2024-03-16T13:23:31.325Z">
 <meta property="article:author" content="Mr Ashers">
 <meta property="article:tag" content="面试题">
 <meta name="twitter:card" content="summary">
@@ -214,16 +214,14 @@
 <li><code>PriorityQueue</code>：基于堆实现的优先队列，可以按照元素的优先级进行访问。</li>
 </ol>
 <p>除了以上列出的集合类型外，Java 还提供了一些特殊用途的集合，如<code>WeakHashMap</code>、<code>EnumSet</code>、<code>EnumMap</code> 等。在 Java的集合框架中，还有一些接口如<code>List</code>、<code>Set</code>、<code>Map</code>等，它们分别代表列表、集合和映射的抽象概念，具体的实现类可以根据需求进行选择。</p>
-<h2 id="java的垃圾回收机制是什么，什么时候使用？"><a href="#java的垃圾回收机制是什么，什么时候使用？" class="headerlink" title="java的垃圾回收机制是什么，什么时候使用？"></a>java的垃圾回收机制是什么，什么时候使用？</h2><p>Java 的垃圾回收机制是一种自动内存管理系统，它负责在运行时自动识别和释放不再被程序引用的内存，以防止内存泄漏和提高程序的性能。   </p>
-<p>Java 中的垃圾回收机制基于以下几个关键概念：   </p>
+<h2 id="java的垃圾回收机制是什么，什么时候使用？"><a href="#java的垃圾回收机制是什么，什么时候使用？" class="headerlink" title="java的垃圾回收机制是什么，什么时候使用？"></a>java的垃圾回收机制是什么，什么时候使用？</h2><p>Java 的垃圾回收机制是一种自动内存管理系统，它负责在运行时自动识别和释放不再被程序引用的内存，以防止内存泄漏和提高程序的性能。<br>Java 中的垃圾回收机制基于以下几个关键概念：   </p>
 <ol>
 <li><strong>垃圾收集器（Garbage Collector）：</strong> Java 垃圾收集器是一组在 Java 虚拟机中运行的线程，负责回收不再被引用的对象的内存。Java 的垃圾收集器采用分代垃圾回收策略，将内存分为年轻代和老年代，以更有效地管理不同生命周期的对象。    </li>
 <li><strong>引用（Reference）：</strong> Java 提供了不同类型的引用，如强引用、软引用、弱引用和虚引用，用于控制对象被垃圾回收的条件。强引用是最常见的引用类型，而软引用、弱引用和虚引用则提供了更灵活的控制选项。     </li>
 <li><strong>垃圾回收算法：</strong> Java 虚拟机采用不同的垃圾回收算法，如标记-清除、复制、标记-整理等。这些算法用于在不同情况下更高效地回收垃圾对象。</li>
 </ol>
 <p>垃圾回收机制是自动进行的，无需程序员显式地进行干预。垃圾回收器会周期性地检查程序中的对象，并识别那些不再被引用的对象，然后释放它们占用的内存。  </p>
-<p>一般来说，程序员<strong>无需显式</strong>地触发垃圾回收，因为 Java 虚拟机会在需要时自动进行。然而，在某些特殊情况下，可以使用 <code>System.gc()</code> 或 <code>Runtime.getRuntime().gc()</code> 来请求垃圾回收，但这只是一个建议，并不保证会立即执行垃圾回收。    </p>
-<p>在大多数情况下，信任垃圾回收机制自动管理内存是明智的选择。手动触发垃圾回收通常是出于性能调优的目的，但在正常情况下，不建议频繁使用。   </p>
+<p>一般来说，程序员<strong>无需显式</strong>地触发垃圾回收，因为 Java 虚拟机会在需要时自动进行。然而，在某些特殊情况下，可以使用 <code>System.gc()</code> 或 <code>Runtime.getRuntime().gc()</code> 来请求垃圾回收，但这只是一个建议，并不保证会立即执行垃圾回收。<br>在大多数情况下，信任垃圾回收机制自动管理内存是明智的选择。手动触发垃圾回收通常是出于性能调优的目的，但在正常情况下，不建议频繁使用。   </p>
 <h2 id="Radis有哪些数据类型？"><a href="#Radis有哪些数据类型？" class="headerlink" title="Radis有哪些数据类型？"></a>Radis有哪些数据类型？</h2><p><code>Redis</code>有以下这五种<strong>基本类型</strong>：   </p>
 <ul>
 <li><code>String</code>（字符串）：最简单的数据类型，可以包含任何数据，如文本、二进制数据等。常用操作包括设置值、获取值、追加值等。   </li>
@@ -240,15 +238,13 @@
 </ul>
 <h2 id="MD5的优缺点。"><a href="#MD5的优缺点。" class="headerlink" title="MD5的优缺点。"></a>MD5的优缺点。</h2><p>MD5（Message Digest Algorithm 5）是一种常用的哈希函数，用于生成固定长度（128位）的哈希值，通常以 32 个十六进制字符的形式表示。虽然 MD5 在过去广泛应用于数据完整性校验和密码存储，但在现代应用中，MD5 已经被认为是不安全的，主要是因为其存在以下一些优缺点：  </p>
 <ul>
-<li><p><em><strong>优点：</strong></em>  </p>
-<ul>
+<li><strong>优点：</strong>  <ul>
 <li><strong>快速计算：</strong> MD5 是一种快速的哈希算法，对于大多数应用而言，生成 MD5 哈希值的速度相对较快。  </li>
 <li><strong>固定长度输出：</strong> MD5 生成的哈希值长度是固定的（128位或32个字符），这使得它适用于需要固定长度摘要的场景。</li>
 </ul>
-<p> </p>
+<p>  </p>
 </li>
-<li><p><em><strong>缺点：</strong></em>  </p>
-<ul>
+<li><strong>缺点：</strong>  <ul>
 <li><strong>易碰撞性：</strong> MD5 存在碰撞问题，即不同的输入可能会产生相同的哈希值，这降低了其在安全性要求较高场景的可靠性。攻击者可以通过特定技术生成具有相同 MD5 哈希值的不同输入，这对于密码破解等攻击是危险的。    </li>
 <li><strong>不可逆性：</strong> MD5 是单向哈希函数，无法从哈希值还原出原始数据。这使得它适用于密码存储等场景，但也意味着无法通过哈希值反向获取原始数据。    </li>
 <li><strong>已被破解：</strong> MD5 已经被广泛破解，通过预先计算大量可能的输入值（彩虹表攻击）、使用碰撞攻击等方法，使得它不再安全可靠。  </li>
@@ -267,7 +263,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">AtomicInteger</span> <span class="variable">i</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 线程安全的自增操作</span></span><br><span class="line">i.incrementAndGet();</span><br></pre></td></tr></table></figure>
 
 <p>使用<code>AtomicInteger</code>类的<code>incrementAndGet()</code>方法可以保证原子性，确保在多线程环境中递增操作是线程安全的。   </p>
-<h2 id="Map的遍历有哪几种方式？"><a href="#Map的遍历有哪几种方式？" class="headerlink" title="Map的遍历有哪几种方式？"></a>Map的遍历有哪几种方式？</h2><p>在 Java 中，可以使用不同的方式来遍历 <code>Map</code>。以下是一些常见的遍历方式：   </p>
+<h2 id="Map的遍历有哪几种方式？"><a href="#Map的遍历有哪几种方式？" class="headerlink" title="Map的遍历有哪几种方式？"></a>Map的遍历有哪几种方式？</h2><p>在 Java 中，可以使用不同的方式来遍历 <code>Map</code>。以下是一些常见的遍历方式：  </p>
 <ol>
 <li><strong>使用 EntrySet 遍历：</strong><br> 通过获取 <code>entrySet()</code>，然后遍历 <code>Map.Entry</code> 对象。    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : map.entrySet()) &#123;</span><br><span class="line"><span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> entry.getKey();</span><br><span class="line"><span class="type">Integer</span> <span class="variable">value</span> <span class="operator">=</span> entry.getValue();</span><br><span class="line"><span class="comment">// 处理 key 和 value</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><strong>使用 keySet 遍历：</strong><br> 通过获取 <code>keySet()</code>，然后遍历键，再通过键获取对应的值。    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">value</span> <span class="operator">=</span> map.get(key);</span><br><span class="line"><span class="comment">// 处理 key 和 value</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
@@ -280,7 +276,7 @@
 <li>用于比较两个对象的引用是否指向相同的内存地址。   </li>
 <li>如果比较的是基本数据类型，比较的是值是否相等。   </li>
 <li>对于对象引用，比较的是对象的地址，即对象是否为同一实例。   </li>
-<li>在基本数据类型和引用类型中，<code>==</code> 的行为是不同的。   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(str1 == str2);  <span class="comment">// false，因为两个对象的引用不同</span></span><br></pre></td></tr></table></figure></li>
+<li>在基本数据类型和引用类型中，<code>==</code> 的行为是不同的。  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(str1 == str2);  <span class="comment">// false，因为两个对象的引用不同</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <p><strong>2. <code>equals()</code> 方法：</strong>  </p>
 <ul>
@@ -290,14 +286,14 @@
 </ul>
 <p>在一些类库中，如 <code>String</code> 类，<code>equals()</code> 被重写以比较对象的内容而不是引用地址。但在一些自定义类中，如果没有重写 <code>equals()</code> 方法，它默认的行为仍然是比较引用地址。<br>总体来说，对于自定义类，为了实现对象内容的比较，通常需要重写 <code>equals()</code> 方法，并根据业务需求定义比较的规则。   </p>
 <h2 id="final的作用？"><a href="#final的作用？" class="headerlink" title="final的作用？"></a><code>final</code>的作用？</h2><ul>
-<li>修饰类：表明该类不可被继承，类中的所有成员方法都隐式的被指定为<code>final</code> 方法，成员变量则可定义为<code>final</code>，也可不定义为<code>final</code>。   </li>
+<li>修饰类：表明该类不可被继承，类中的所有成员方法都隐式的被指定为<code>final</code> 方法，成员变量则可定义为<code>final</code>，也可不定义为<code>final</code>。  </li>
 <li>修饰方法：用<code>final</code> 修饰方法的原因有两个：   <ul>
 <li>锁定这个方法，防止任何继承类修改它的含义；  </li>
 <li>提高效率：在方法前面添加<code>final</code> 进行修饰可以提高效率，其原理是基于内联&#x2F;内嵌（inline）机制，它会使你在调用<code>final</code> 方法时，直接将方法的主体插入到调用处，从而省去调用函数所花费的开销。但是如果方法过于庞大或者其中有循环的话，这种提高效率的方法可能会失效。</li>
 </ul>
 </li>
 <li>修饰变量：<code>final</code> 对变量的修饰的作用，是防止变量值的改变；  <ul>
-<li>如果修饰的是基本类型数据变量，则该变量的值不能发生改变；   </li>
+<li>如果修饰的是基本类型数据变量，则该变量的值不能发生改变；  </li>
 <li>如果修饰的是引用类型数据变量，则该变量不会内二次初始化；</li>
 </ul>
 </li>
@@ -588,6 +584,7 @@
   </div>
 </article>
 
+
   
 <nav id="article-nav">
   
@@ -634,7 +631,6 @@
 </aside>
 
 
-
   
   
   
@@ -644,6 +640,26 @@
   
 
   
+  
+  
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="comment"></div>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+new Valine({
+    el: '#comment' ,
+    notify:false, 
+    verify:false, 
+    appId: 'zAKQVv6P9RRlE2GBuH3aklgn-gzGzoHsz',
+    appKey: 'faNXi9xTHBnYvTPaU6SFMtC2',
+    placeholder: 'ヾﾉ≧∀≦)o欢迎评论!',
+    path:window.location.pathname, 
+    avatar:'mm' 
+});
+</script>
+    </section>
+  
+
 
 
           </div>
