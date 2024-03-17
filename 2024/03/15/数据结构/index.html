@@ -199,50 +199,52 @@
       
       
       
-        <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><span id="more"></span>  
-
-<h2 id="栈和队列的区别？"><a href="#栈和队列的区别？" class="headerlink" title="栈和队列的区别？"></a>栈和队列的区别？</h2><p>栈（Stack）和队列（Queue）是两种基本的数据结构，它们在元素的插入和删除方式上有一些关键的区别：  </p>
-<p><strong>1. 插入和删除方式：</strong>  </p>
+        <h1>数据结构</h1>
+<span id="more"></span>  
+<h2 id="栈和队列的区别？">栈和队列的区别？</h2>
+<p>栈（Stack）和队列（Queue）是两种基本的数据结构，它们在元素的插入和删除方式上有一些关键的区别：</p>
+<p><strong>1. 插入和删除方式：</strong></p>
 <ul>
-<li><strong>栈：</strong> 遵循后进先出（Last In, First Out，LIFO）的原则，新元素在栈顶插入，而删除元素也是从栈顶开始。  </li>
+<li><strong>栈：</strong> 遵循后进先出（Last In, First Out，LIFO）的原则，新元素在栈顶插入，而删除元素也是从栈顶开始。</li>
 <li><strong>队列：</strong> 遵循先进先出（First In, First Out，FIFO）的原则，新元素在队尾插入，而删除元素是从队头开始。</li>
 </ul>
-<p><strong>2. 允许的操作：</strong>  </p>
+<p><strong>2. 允许的操作：</strong></p>
 <ul>
-<li><strong>栈：</strong> 允许在栈顶进行插入（压栈）和删除（弹栈）操作。  </li>
+<li><strong>栈：</strong> 允许在栈顶进行插入（压栈）和删除（弹栈）操作。</li>
 <li><strong>队列：</strong> 允许在队尾进行插入（入队）操作，在队头进行删除（出队）操作。</li>
 </ul>
-<p><strong>3. 应用场景：</strong>  </p>
+<p><strong>3. 应用场景：</strong></p>
 <ul>
-<li><strong>栈：</strong> 适合于需要反向追踪操作的场景，如函数调用栈、表达式求值等。  </li>
+<li><strong>栈：</strong> 适合于需要反向追踪操作的场景，如函数调用栈、表达式求值等。</li>
 <li><strong>队列：</strong> 适合于需要按顺序处理元素的场景，如任务调度、广度优先搜索等。</li>
 </ul>
-<p><strong>4. 实现方式：</strong>  </p>
+<p><strong>4. 实现方式：</strong></p>
 <ul>
-<li><strong>栈：</strong> 可以通过数组或链表实现，数组实现的栈称为数组栈，链表实现的栈称为链式栈。  </li>
+<li><strong>栈：</strong> 可以通过数组或链表实现，数组实现的栈称为数组栈，链表实现的栈称为链式栈。</li>
 <li><strong>队列：</strong> 可以通过数组或链表实现，数组实现的队列称为数组队列，链表实现的队列称为链式队列。</li>
 </ul>
-<p><strong>5. 性能：</strong>  </p>
+<p><strong>5. 性能：</strong></p>
 <ul>
-<li><strong>栈：</strong> 插入和删除操作都在栈顶进行，因此性能较高，时间复杂度为 O(1)。  </li>
+<li><strong>栈：</strong> 插入和删除操作都在栈顶进行，因此性能较高，时间复杂度为 O(1)。</li>
 <li><strong>队列：</strong> 插入和删除操作分别在队尾和队头进行，性能较高，时间复杂度为 O(1)。</li>
 </ul>
-<p>在实际应用中，选择使用栈还是队列取决于具体的需求。例如，如果需要按照先后顺序处理元素，那么队列可能更适合；如果需要反向追踪操作，那么栈可能更适合。  </p>
-<h2 id="数组和链表的区别？"><a href="#数组和链表的区别？" class="headerlink" title="数组和链表的区别？"></a>数组和链表的区别？</h2><ul>
+<p>在实际应用中，选择使用栈还是队列取决于具体的需求。例如，如果需要按照先后顺序处理元素，那么队列可能更适合；如果需要反向追踪操作，那么栈可能更适合。</p>
+<h2 id="数组和链表的区别？">数组和链表的区别？</h2>
+<ul>
 <li>数组的内存空间是连续的，我们创建数组的时候系统就会为我们开辟固定数目的内存空间，如果内存不足，就会创建失败，例如创建数组的两种方式：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] a=<span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">3</span>];</span><br><span class="line"><span class="type">int</span>[] b=<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>可以看到我们创建数组的时候已经指定了数组的大小，且不能动态更改数组的大小，是因为创建时候已经分配了连续的固定内存空间，每个元素占用两个字节，这样我们就可以通过连续的内存，去访问数组的元素；  </li>
-<li>链表的内存分配是动态的，链表的元素占用的空间包含元素占用的空间，还有指向上一个或者下一个元素的指针（双链表，单链表）；  </li>
-<li><strong>这样我们可以得出各自的优缺点：</strong>  <ul>
-<li>数组占用空间小，链表元素还要包含上一元素和下一个元素的信息；  </li>
-<li>数组的访问速度快，因为内存是连续的；  </li>
-<li>数组内部元素可以随机访问，而链表依赖于上一个元素的信息；  </li>
-<li>链表的插入删除操作由于数组，因为内存不连续，只需要更改元素的前后节点信息就行了，并不需要更改元素内存地址，而数组的连续内存想要插入和删除的话就要移动所有的内存地址；  </li>
-<li>链表的内存利用率高于数组，链表内存是分散的一个元素占用一块空间，数组元素少于内存空间的话，会有部分的内存浪费；  </li>
-<li>链表的扩展性强，数组的创建完成内存大小就确定了，满了就没法扩展只能再次创建新的数组，而链表可以随意的增加扩展；  </li>
+<li>可以看到我们创建数组的时候已经指定了数组的大小，且不能动态更改数组的大小，是因为创建时候已经分配了连续的固定内存空间，每个元素占用两个字节，这样我们就可以通过连续的内存，去访问数组的元素；</li>
+<li>链表的内存分配是动态的，链表的元素占用的空间包含元素占用的空间，还有指向上一个或者下一个元素的指针（双链表，单链表）；</li>
+<li><strong>这样我们可以得出各自的优缺点：</strong>
+<ul>
+<li>数组占用空间小，链表元素还要包含上一元素和下一个元素的信息；</li>
+<li>数组的访问速度快，因为内存是连续的；</li>
+<li>数组内部元素可以随机访问，而链表依赖于上一个元素的信息；</li>
+<li>链表的插入删除操作由于数组，因为内存不连续，只需要更改元素的前后节点信息就行了，并不需要更改元素内存地址，而数组的连续内存想要插入和删除的话就要移动所有的内存地址；</li>
+<li>链表的内存利用率高于数组，链表内存是分散的一个元素占用一块空间，数组元素少于内存空间的话，会有部分的内存浪费；</li>
+<li>链表的扩展性强，数组的创建完成内存大小就确定了，满了就没法扩展只能再次创建新的数组，而链表可以随意的增加扩展；</li>
 <li>效率：数组查询效率高，链表增，删效率高。</li>
 </ul>
 </li>
@@ -431,7 +433,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">栈和队列的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">数组和链表的区别？</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">栈和队列的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">数组和链表的区别？</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

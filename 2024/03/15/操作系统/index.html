@@ -199,97 +199,104 @@
       
       
       
-        <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><span id="more"></span>  
-
-<h2 id="操作系统中的虚拟内存有什么作用？"><a href="#操作系统中的虚拟内存有什么作用？" class="headerlink" title="操作系统中的虚拟内存有什么作用？"></a>操作系统中的虚拟内存有什么作用？</h2><p>虚拟内存是操作系统中的一种技术，其主要作用是扩展计算机系统的内存空间，提供更大的地址空间给运行的程序。以下是虚拟内存的一些主要作用：  </p>
+        <h1>操作系统</h1>
+<span id="more"></span>  
+<h2 id="操作系统中的虚拟内存有什么作用？">操作系统中的虚拟内存有什么作用？</h2>
+<p>虚拟内存是操作系统中的一种技术，其主要作用是扩展计算机系统的内存空间，提供更大的地址空间给运行的程序。以下是虚拟内存的一些主要作用：</p>
 <ol>
-<li><strong>内存管理：</strong> 虚拟内存允许操作系统将程序的数据和指令加载到物理内存（RAM）中，而不需要程序员关心具体的内存地址。这使得内存管理更加灵活，系统可以根据需要动态地分配和回收内存。  </li>
-<li><strong>多任务处理：</strong> 允许多个程序同时运行，每个程序都有自己的虚拟地址空间，使它们似乎独占整个计算机系统的内存。这使得操作系统能够有效地在多个任务之间切换，提高系统的并发性能。  </li>
-<li><strong>内存保护：</strong> 通过虚拟内存，操作系统可以为每个程序提供独立的地址空间，防止一个程序无意或恶意地访问其他程序的内存。这提高了系统的安全性和稳定性。  </li>
-<li><strong>页面交换：</strong> 当物理内存不足时，虚拟内存系统可以将当前不使用的页面（内存中的一部分）交换到磁盘上，从而释放物理内存供其他程序使用。这样可以更有效地利用有限的内存资源。  </li>
-<li><strong>内存共享：</strong> 允许多个进程共享一段相同的虚拟地址空间，这对于进程间通信和共享数据非常有用。  </li>
+<li><strong>内存管理：</strong> 虚拟内存允许操作系统将程序的数据和指令加载到物理内存（RAM）中，而不需要程序员关心具体的内存地址。这使得内存管理更加灵活，系统可以根据需要动态地分配和回收内存。</li>
+<li><strong>多任务处理：</strong> 允许多个程序同时运行，每个程序都有自己的虚拟地址空间，使它们似乎独占整个计算机系统的内存。这使得操作系统能够有效地在多个任务之间切换，提高系统的并发性能。</li>
+<li><strong>内存保护：</strong> 通过虚拟内存，操作系统可以为每个程序提供独立的地址空间，防止一个程序无意或恶意地访问其他程序的内存。这提高了系统的安全性和稳定性。</li>
+<li><strong>页面交换：</strong> 当物理内存不足时，虚拟内存系统可以将当前不使用的页面（内存中的一部分）交换到磁盘上，从而释放物理内存供其他程序使用。这样可以更有效地利用有限的内存资源。</li>
+<li><strong>内存共享：</strong> 允许多个进程共享一段相同的虚拟地址空间，这对于进程间通信和共享数据非常有用。</li>
 <li><strong>简化编程：</strong> 程序员可以使用相对较小的虚拟地址空间编写程序，而不必担心物理内存的限制。这样，程序的编写变得更加简化和灵活。</li>
 </ol>
-<p>总的来说，虚拟内存在提高系统性能、简化内存管理、增强系统稳定性和安全性等方面都发挥着关键作用。 </p>
-<h2 id="线程和进程的区别？"><a href="#线程和进程的区别？" class="headerlink" title="线程和进程的区别？"></a>线程和进程的区别？</h2><p>线程（Thread）和进程（Process）是操作系统中用于实现多任务的两个基本概念，它们有一些关键的区别：  </p>
-<p><strong>1. 定义：</strong>   </p>
+<p>总的来说，虚拟内存在提高系统性能、简化内存管理、增强系统稳定性和安全性等方面都发挥着关键作用。</p>
+<h2 id="线程和进程的区别？">线程和进程的区别？</h2>
+<p>线程（Thread）和进程（Process）是操作系统中用于实现多任务的两个基本概念，它们有一些关键的区别：</p>
+<p><strong>1. 定义：</strong></p>
 <ul>
-<li>进程：一个独立的执行环境，有自己的内存空间、文件句柄、系统资源等。进程是程序的一次执行过程。  </li>
+<li>进程：一个独立的执行环境，有自己的内存空间、文件句柄、系统资源等。进程是程序的一次执行过程。</li>
 <li>线程：进程内的一个独立执行单元，共享进程的资源。</li>
 </ul>
-<p><strong>2. 资源分配：</strong>   </p>
+<p><strong>2. 资源分配：</strong></p>
 <ul>
-<li>进程：独立的内存空间，每个进程有自己的数据段、代码段、堆栈等。  </li>
+<li>进程：独立的内存空间，每个进程有自己的数据段、代码段、堆栈等。</li>
 <li>线程：共享进程的内存空间，包括数据段、代码段等。每个线程有自己的栈。</li>
 </ul>
-<p><strong>3. 通信和同步：</strong>   </p>
+<p><strong>3. 通信和同步：</strong></p>
 <ul>
-<li>进程：进程间通信较为复杂，通常需要采用 IPC（进程间通信）的机制，如管道、消息队列、共享内存等。  </li>
+<li>进程：进程间通信较为复杂，通常需要采用 IPC（进程间通信）的机制，如管道、消息队列、共享内存等。</li>
 <li>线程：线程间通信较为简单，可以直接通过共享内存进行通信。但需要注意线程同步的问题，防止出现竞态条件等并发问题。</li>
 </ul>
-<p><strong>4. 创建和销毁的开销：</strong>   </p>
+<p><strong>4. 创建和销毁的开销：</strong></p>
 <ul>
-<li>进程：相对较大的创建和销毁开销，包括复制父进程的资源、建立 PCB（Process Control Block）等。  </li>
+<li>进程：相对较大的创建和销毁开销，包括复制父进程的资源、建立 PCB（Process Control Block）等。</li>
 <li>线程：相对较小的创建和销毁开销，因为线程共享进程的资源。</li>
 </ul>
-<p><strong>5. 独立性：</strong>   </p>
+<p><strong>5. 独立性：</strong></p>
 <ul>
-<li>进程：相对独立，一个进程崩溃通常不会影响其他进程。  </li>
+<li>进程：相对独立，一个进程崩溃通常不会影响其他进程。</li>
 <li>线程：共享进程的资源，一个线程的问题可能导致整个进程的崩溃。</li>
 </ul>
-<p><strong>6. 并发性：</strong>   </p>
+<p><strong>6. 并发性：</strong></p>
 <ul>
-<li>进程：进程之间相互独立，通常需要进程调度器进行切换。  </li>
+<li>进程：进程之间相互独立，通常需要进程调度器进行切换。</li>
 <li>线程：线程共享相同的地址空间，可以更方便地实现并发操作，线程切换相对轻量。</li>
 </ul>
-<p>总体而言，进程和线程都是实现多任务的方式，但线程更轻量，由于它们共享相同的地址空间，通常更适合在同一进程中执行并发操作。在实际应用中，选择使用进程还是线程取决于具体的需求和设计考虑。  </p>
-<h2 id="并行和并发的区别？"><a href="#并行和并发的区别？" class="headerlink" title="并行和并发的区别？"></a>并行和并发的区别？</h2><ul>
-<li>并发是指一个处理器同时处理多个任务。   </li>
+<p>总体而言，进程和线程都是实现多任务的方式，但线程更轻量，由于它们共享相同的地址空间，通常更适合在同一进程中执行并发操作。在实际应用中，选择使用进程还是线程取决于具体的需求和设计考虑。</p>
+<h2 id="并行和并发的区别？">并行和并发的区别？</h2>
+<ul>
+<li>并发是指一个处理器同时处理多个任务。</li>
 <li>并行是指多个处理器或者是多核的处理器同时处理多个不同的任务。</li>
 </ul>
-<h2 id="传统线程模型（操作系统）中线程状态。"><a href="#传统线程模型（操作系统）中线程状态。" class="headerlink" title="传统线程模型（操作系统）中线程状态。"></a>传统线程模型（操作系统）中线程状态。</h2><p><strong>1. 新建（new）</strong>  </p>
+<h2 id="传统线程模型（操作系统）中线程状态。">传统线程模型（操作系统）中线程状态。</h2>
+<p><strong>1. 新建（new）</strong></p>
 <ul>
 <li>创建了一个新的线程对象。</li>
 </ul>
-<p><strong>2. 就绪（runnable）</strong>  </p>
+<p><strong>2. 就绪（runnable）</strong></p>
 <ul>
 <li>调用线程的<code>start()</code>方法，处于就绪状态。</li>
 </ul>
-<p><strong>3. 运行（running）</strong>  </p>
+<p><strong>3. 运行（running）</strong></p>
 <ul>
-<li>获得了CPU时间片，执行程序代码；  </li>
+<li>获得了CPU时间片，执行程序代码；</li>
 <li>就绪状态是进入到运行状态的唯一入口。</li>
 </ul>
-<p><strong>4. 阻塞（block）</strong>  </p>
+<p><strong>4. 阻塞（block）</strong></p>
 <ul>
-<li>因为某种原因，线程放弃对CPU的使用权，停止执行，直到进入就绪状态在有可能再次被CPU调度。  </li>
-<li>阻塞又分为三种：  <ul>
-<li><strong>等待阻塞</strong>：运行状态的线程执行 <code>wait</code> 方法，JVM会把线程放在等待队列中，使本线程进入阻塞状态。  </li>
-<li><strong>同步阻塞</strong>：线程在获得 <code>synchronized</code> 同步锁失败，JVM会把线程放入锁池中，线程进入同步阻塞。  </li>
+<li>因为某种原因，线程放弃对CPU的使用权，停止执行，直到进入就绪状态在有可能再次被CPU调度。</li>
+<li>阻塞又分为三种：
+<ul>
+<li><strong>等待阻塞</strong>：运行状态的线程执行 <code>wait</code> 方法，JVM会把线程放在等待队列中，使本线程进入阻塞状态。</li>
+<li><strong>同步阻塞</strong>：线程在获得 <code>synchronized</code> 同步锁失败，JVM会把线程放入锁池中，线程进入同步阻塞。</li>
 <li><strong>其他阻塞</strong>：调用线程的 <code>sleep()</code> 或者 <code>join()</code> 后，线程会进入到阻塞状态，当 <code>sleep</code> 超时或者 <code>join</code> 终止或超时，线程重新转入就绪状态。</li>
 </ul>
 </li>
 </ul>
-<p><strong>5. 死亡（dead）</strong>  </p>
+<p><strong>5. 死亡（dead）</strong></p>
 <ul>
 <li>线程 <code>run()</code> 、 <code>main()</code> 方法执行结束，或者因为异常退出了 <code>run()</code> 方法，则该线程结束生命周期。</li>
 </ul>
-<h2 id="什么是死锁？"><a href="#什么是死锁？" class="headerlink" title="什么是死锁？"></a>什么是死锁？</h2><p>死锁是在多线程编程中常见的一种情况，指的是两个或多个线程因互相持有对方所需的资源而被阻塞，导致它们都无法继续执行，从而造成了程序的永久性阻塞。<br>典型的死锁发生在多个线程试图获取一组资源，但每个线程都在等待其他线程释放它所需要的资源，从而形成了循环依赖，无法解开。  </p>
-<p>死锁发生的必要条件包括：  </p>
+<h2 id="什么是死锁？">什么是死锁？</h2>
+<p>死锁是在多线程编程中常见的一种情况，指的是两个或多个线程因互相持有对方所需的资源而被阻塞，导致它们都无法继续执行，从而造成了程序的永久性阻塞。<br>
+典型的死锁发生在多个线程试图获取一组资源，但每个线程都在等待其他线程释放它所需要的资源，从而形成了循环依赖，无法解开。</p>
+<p>死锁发生的必要条件包括：</p>
 <ol>
-<li><strong>互斥条件</strong> ：资源只能被一个线程持有，如果一个线程已经获得了某个资源，其他线程就无法再获取该资源。  </li>
-<li><strong>请求与保持条件</strong> ：线程可以持有已经获得的资源，并请求其他资源。如果一个线程持有了一些资源，但又在等待其他线程持有的资源，那么就有可能发生死锁。  </li>
-<li><strong>不可剥夺条件</strong> ：已经分配给一个线程的资源不能被强制性地剥夺，只能由持有资源的线程显式地释放。  </li>
+<li><strong>互斥条件</strong> ：资源只能被一个线程持有，如果一个线程已经获得了某个资源，其他线程就无法再获取该资源。</li>
+<li><strong>请求与保持条件</strong> ：线程可以持有已经获得的资源，并请求其他资源。如果一个线程持有了一些资源，但又在等待其他线程持有的资源，那么就有可能发生死锁。</li>
+<li><strong>不可剥夺条件</strong> ：已经分配给一个线程的资源不能被强制性地剥夺，只能由持有资源的线程显式地释放。</li>
 <li><strong>循环等待条件</strong> ：若干个线程之间形成一种循环等待资源的关系，每个线程都在等待下一个线程所持有的资源。</li>
 </ol>
-<p>避免死锁的方法包括：  </p>
+<p>避免死锁的方法包括：</p>
 <ol>
-<li><strong>破坏互斥条件</strong> ：如果可能的话，将某些资源设计为可共享的，这样多个线程就可以同时访问这些资源，避免了资源的互斥性。  </li>
-<li><strong>破坏请求与保持条件</strong> ：设计一种策略，使得线程在获取资源时不会持有已有的资源，或者在请求新资源时释放已有的资源。  </li>
-<li><strong>破坏不可剥夺条件</strong> ：引入超时机制或者抢占机制，使得系统可以在一定条件下强制性地剥夺某些资源。  </li>
+<li><strong>破坏互斥条件</strong> ：如果可能的话，将某些资源设计为可共享的，这样多个线程就可以同时访问这些资源，避免了资源的互斥性。</li>
+<li><strong>破坏请求与保持条件</strong> ：设计一种策略，使得线程在获取资源时不会持有已有的资源，或者在请求新资源时释放已有的资源。</li>
+<li><strong>破坏不可剥夺条件</strong> ：引入超时机制或者抢占机制，使得系统可以在一定条件下强制性地剥夺某些资源。</li>
 <li><strong>破坏循环等待条件</strong> ：通过资源的静态分配和有序分配来避免循环等待的发生。</li>
 </ol>
-<p>在实际编程中，尽量避免死锁的发生是至关重要的，可以通过良好的设计和合理的资源管理来减少死锁的概率。同时，在代码中添加适当的死锁检测和恢复机制也是一种有效的方式。  </p>
+<p>在实际编程中，尽量避免死锁的发生是至关重要的，可以通过良好的设计和合理的资源管理来减少死锁的概率。同时，在代码中添加适当的死锁检测和恢复机制也是一种有效的方式。</p>
 
       <!-- 增加版权声明 -->
 
@@ -474,7 +481,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">操作系统中的虚拟内存有什么作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">线程和进程的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E5%92%8C%E5%B9%B6%E5%8F%91%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">并行和并发的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%EF%BC%88%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%89%E4%B8%AD%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E3%80%82"><span class="toc-number">1.4.</span> <span class="toc-text">传统线程模型（操作系统）中线程状态。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%AD%BB%E9%94%81%EF%BC%9F"><span class="toc-number">1.5.</span> <span class="toc-text">什么是死锁？</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">操作系统中的虚拟内存有什么作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">线程和进程的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E5%92%8C%E5%B9%B6%E5%8F%91%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">并行和并发的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%EF%BC%88%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%89%E4%B8%AD%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E3%80%82"><span class="toc-number">1.4.</span> <span class="toc-text">传统线程模型（操作系统）中线程状态。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%AD%BB%E9%94%81%EF%BC%9F"><span class="toc-number">1.5.</span> <span class="toc-text">什么是死锁？</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
