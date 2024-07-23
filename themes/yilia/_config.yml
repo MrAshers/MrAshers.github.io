@@ -101,13 +101,17 @@ gitment_oauth:
   client_secret: ''       #client secret
 
 #6、Valine https://valine.js.org
+leancloud:
+  enable: true #是否开启Leancloud评论
+  app_id: zAKQVv6P9RRlE2GBuH3aklgn-gzGzoHsz #Leancloud应用的appId
+  app_key: faNXi9xTHBnYvTPaU6SFMtC2 #Leancloud应用的appKey
 valine: 
- appid: zAKQVv6P9RRlE2GBuH3aklgn-gzGzoHsz #Leancloud应用的appId
- appkey: faNXi9xTHBnYvTPaU6SFMtC2 #Leancloud应用的appKey
- verify: false #验证码，verify和notify这两个最好就别动了
- notify: false #评论回复提醒
- avatar: mm #评论列表头像样式：''/mm/identicon/monsterid/wavatar/retro/hide
- placeholder: Just go go #评论框占位符
+  enable: true #是否开启Valine评论
+  verify: false #验证码，verify和notify这两个最好就别动了
+  notify: false #评论回复提醒
+  avatar: retro #评论列表头像样式：''/mm/identicon/monsterid/wavatar/retro/hide
+  placeholder: 给我的文章加点评论吧~ #评论框占位符
+  visitor: true #访客评论
 
 # 样式定制 - 一般不需要修改，除非有很强的定制欲望…
 style:
