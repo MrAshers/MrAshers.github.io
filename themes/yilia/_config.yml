@@ -66,7 +66,7 @@ toc_empty_wording: '目录，不存在的…'
 top: true
 
 # Miscellaneous
-baidu_analytics: ''
+baidu_analytics: true
 google_analytics: ''
 favicon: /assets/favicon.ico
 
