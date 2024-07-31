@@ -1,14 +1,18 @@
-<div id="comment"></div>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
-new Valine({
-    el: '#comment' ,
-    notify:false, 
-    verify:false, 
-    appId: '<%=theme.valine.appid%>',
-    appKey: '<%=theme.valine.appkey%>',
-    placeholder: 'ヾﾉ≧∀≦)o欢迎评论!',
-    path:window.location.pathname, 
-    avatar:'mm' 
-});
+   var notify = '<%= theme.valine.notify %>' == true ? true : false;
+   var verify = '<%= theme.valine.verify %>' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "<%= theme.valine.appid %>",
+            app_key: "<%= theme.valine.appkey %>",
+            placeholder: "<%= theme.valine.placeholder %>",
+            avatar:"<%= theme.valine.avatar %>"
+        });
+    }
 </script>

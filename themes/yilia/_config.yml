@@ -147,9 +147,9 @@ aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
 
 # 网易云音乐插件
 music:
-  enable: true
+  enable: false
   #id: 1332647902  # 网易云分享的ID
-  autoplay: true  # 是否开启自动播放
+  autoplay: false  # 是否开启自动播放
 
 #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明
 #当前应用的版权协议地址。
